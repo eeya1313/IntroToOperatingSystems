@@ -1,26 +1,19 @@
 #include <stdio.h>
-int main()
-{
-    int y;
+#include <stdlib.h>
 
-    printf("Enter year: ");
-    scanf("%d",&y);
+int main(int argc, char *argv[]) {
 
-    if(y % 4 == 0)
-    {
+    int year = atoi(argv[1]); 
+    if(year % 400 == 0)
+    {printf("%d was a leap year!\n",year);}
 
-        if( y % 100 == 0)
-        {
-            if ( y % 400 == 0)
-                printf("%d was a leap year", y);
-            else
-                printf("%d was not a leap year", y);
-        }
-        else
-            printf("%d was a leap year", y );
-    }
+    else if(year % 100 == 0)
+    {printf("%d was not a leap year!\n",year);}
+
+    else if(year % 4 == 0)
+    {printf("%d was a leap year!\n",year);}
+
     else
-        printf("%d was not a leap year", y);
+    {printf("%d was not a leap year!\n",year);}
 
-    return 0;
 }
