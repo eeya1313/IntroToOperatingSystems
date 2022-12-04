@@ -24,7 +24,7 @@ struct MEMORY_BLOCK best_fit_allocate(int request_size, struct MEMORY_BLOCK memo
             break;
         }
         else if ((memory_map[i].segment_size > request_size) && (memory_map[i].process_id == 0)) { 
-            if (match == false){ //first match
+            if (match == false){ 
                 match = true;
                 memory_map_index = i;
                 best_fit_segmant = memory_map[i].segment_size;
@@ -37,7 +37,7 @@ struct MEMORY_BLOCK best_fit_allocate(int request_size, struct MEMORY_BLOCK memo
             }
         }
     }
-    if (match == true){ //found match, now swap
+    if (match == true){ 
         temp_memory_block = memory_map[memory_map_index];
         allocated_memory.start_address = temp_memory_block.start_address;
         allocated_memory.end_address = allocated_memory.start_address + request_size - 1;
